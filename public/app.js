@@ -47,12 +47,12 @@ if (slug.length > 0){
 var editor = ace.edit("editor");
 var editorResult = ace.edit( "editorResult" );
 
-editor.getSession().setMode( { path: "ace/mode/javascript", inline: true } );
+editor.getSession().setMode( { path: "ace/mode/json", inline: true } );
 editor.setOptions({
   value: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n',
 })
 
-editorResult.getSession().setMode( { path: "ace/mode/javascript", inline: true } );
+editorResult.getSession().setMode( { path: "ace/mode/json", inline: true } );
 editorResult.setReadOnly(true);
 
 window.draggingAceEditor = {};
