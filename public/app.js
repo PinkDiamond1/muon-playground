@@ -23,7 +23,7 @@ const checkUrlSlug = async (params) => {
   await axios.post('/getDataByName', params)
     .then(response => {
       if (response.data.response == null) {
-        window.location.replace("http://70.34.217.65:3000");
+        window.location.replace("https://playground.muon.net/");
         return Swal.fire({
           title: 'Error!',
           text: 'Invalid Slug',
@@ -418,7 +418,7 @@ const updateRequest = () => {
 const saveInDb = () => {
   axios.post('/save', Object_)
   .then(response => {
-    shareUrl = 'http://70.34.217.65:3000/' + response.data.response.name
+    shareUrl = 'https://playground.muon.net/' + response.data.response.name
     $('#request-share-link').val(shareUrl)
     $('#copy-btn').removeClass('d-none')
   })

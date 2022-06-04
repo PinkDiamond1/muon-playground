@@ -8,10 +8,11 @@
   <link  rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="p-3" id="header">
-        <div class="col-sm-10 col-lg-6 col-md-7 row m-0">
-            <h3 class="col-sm-7 col-md-7 col-lg-5">Muon Playground</h3>
-            <div class="col-sm-5 col-md-5 col-lg-4 p-0">
+    <div class="p-1" id="header">
+        <div class="head-items" style="display:flex">
+            <!-- <h3 class="col-sm-7 col-md-7 col-lg-5">Muon Playground</h3> -->
+            <img src="/images/header.jpg" id="headImag" width="30%">
+            <div style="margin-top: 5%;margin-left: 30px;">
                 <button onclick="updateRequest()" type="button" class="update-request btn btn-outline-success col btn-sm" id="update-request">Save Request <svg style="margin-left: 10px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
                     <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z"/>
                   </svg></button>
@@ -33,42 +34,22 @@
             </div>
         </div>
     </div>
-    <div class="input-group p-3">
-        <div>
-            <select id="request-method" class="form-select" >
-                <option value="post">POST</option>
-                <option value="get">GET</option>
-                <!-- <option value="put">PUT</option>
-                <option value="head">HEAD</option>
-                <option value="delete">DELETE</option>
-                <option value="patch">PATCH</option>
-                <option value="purge">PURGE</option> -->
-            </select>
-        </div>
-        <!-- <button class="btn btn-outline-secondary" type="button" id="button-addon1">Button</button> -->
-        <input type="text" class="form-control" id="urlInput" value="">
-        <button class="btn btn-success text-white" type="button" id="muonize">Muonize</button>
-    </div>
     <div>
 
     </div>
-    <!-- <div class="row" style="direction: rtl;;">
-        <div class="input-group w-50">
-            <button  class="btn d-none btn-outline-secondary" type="button" onclick="saveStaticDataToFile()" id="save">Download</button>
-            <select style="direction: ltr;" id="requests-item" class="form-select">
-            </select>
-            <input class='form-control' id="req-name" type="text" style="width:30%; direction:ltr;" placeholder="request name">
-            <button class="btn btn-outline-primary" onclick=saveRequest()>save request</button>
-        </div>
-        <div style="float:right" class="p-3">
-            <span class="d-none" id="timer"></span>
-            <button class="btn d-none btn-outline-primary" id="copy-btn" onclick="copyToClipboard('#shareUrl')">Copy Link</button>
-            <a href="" class="link-success" id="shareUrl"></a>
-        </div>
-    </div> -->
-    
 
-    <div class="row" style="margin-top: 20px;">
+
+    <div class="row" style="margin-top: 20px;background-color: rgb(244, 244, 244); border-radius: 5px;">
+        <div class="input-group p-3">
+            <div>
+                <select id="request-method" class="form-select" >
+                    <option value="post">POST</option>
+                    <option value="get">GET</option>
+                </select>
+            </div>
+            <input type="text" class="form-control" id="urlInput" value="">
+            <button class="btn btn-success text-white" type="button" id="muonize">Muonize</button>
+        </div>
         <div  class="col-sm-6">
             <ul class="nav nav-tabs" style="margin-bottom: 10px;">
                 <li class="nav-item">
@@ -107,6 +88,11 @@
                 <div class="tab-pane fade" id="headers">
                 </div>
             </div>
+        </div>
+        <div id="footer">
+            <div style="font-size: 10px;color:#313144">Powered by</div>
+            <img alt="Muon logo" src="./images/logo.svg">
+            <img alt="muonNetwork" src="./images/muonNetworkBlack.svg">
         </div>
     </div>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
