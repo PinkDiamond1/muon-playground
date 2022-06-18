@@ -1,0 +1,32 @@
+/* #popup-btn {
+    margin: 0;
+    margin-top: 12px;
+    margin-left: 10px ;
+}
+
+#saveBtn{
+    background-color: rgb(4, 11, 85);
+    color:#fff;
+    font-size: 10px;
+    padding: 7px;
+}
+
+#saveBtn:hover{
+    background-color: rgb(5, 14, 114);
+    color:#fff
+} */
+
+#popup-btn > button{
+    padding: 8px;
+    background-color: #fff;
+    border:1px solid #0d6efd;
+    color:#0d6efd;
+    cursor: pointer;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+#popup-btn > button:hover{
+    background-color: #0d6efd;
+    color:#fff
+}

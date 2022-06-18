@@ -1,0 +1,7 @@
+.ace_line > .ace_string {
+    color: rgb(39, 162, 20) !important
+}
+
+.ace_line > .ace_variable {
+    color: rgb(76, 136, 141) !important
+}

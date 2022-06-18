@@ -1,0 +1,147 @@
+.App {
+    margin: 50px;
+}
+
+
+input {
+    outline: none;
+}
+
+#editor-section{
+    display: flex;
+    margin-top: 30px;
+    /* border-top: 1px solid #ccc; */
+}
+
+#editor-api{
+    width: 50%;
+    margin-right: 10px;
+}
+#editor-result{
+    width: 50%;
+}
+
+#editor{
+    width: 100% !important;
+}
+
+#muonize-section{
+    display: flex;
+    width: 100%;
+}
+
+#muonize-section > select{
+    color:rgb(118, 187, 213);
+    padding: 1px;
+}
+
+#muonize-section > input {
+    color: rgb(97, 97, 97);
+    outline: none;
+    border: 1px solid #ccc;
+    width: inherit;
+}
+
+#muonize-section > input:focus {
+    border:1px solid rgb(160, 160, 160)
+}
+
+#muonize-section button {
+    cursor: pointer;
+    color: #fff;
+    background-color: rgb(55, 173, 12);
+    border: 0;
+    border-radius: 2px;
+}
+
+#muonize-section button:hover{
+    background-color: rgb(42, 133, 9);
+}
+
+
+#muonize-section > * {
+    padding: 15px;
+    font-size: 14px;
+}
+
+
+.tab {
+    display: flex;
+    overflow: hidden;
+    /* border: 1px solid #ccc; */
+    margin-top: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab > button {
+    padding: 14px 18px;
+    border:0;
+    outline: none;
+    cursor: pointer;
+    transition: 0.8s;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+    border-bottom: px solid #fff;
+    font-size: 16px;
+}
+
+.tab > button:hover {
+    padding: 14px 18px;
+    cursor: pointer;
+    opacity: .6;
+}
+
+.active-tabs{
+    transition: 0.8s;
+    background-color: rgb(238, 236, 236) !important;
+}
+
+
+.tabContent {
+    transition: 0.8s;
+    display: none;
+}
+
+.activeContent {
+    transition: 0.8s;
+    display: block;
+}
+
+
+#result-header {
+    list-style: none;
+    color:rgb(98, 98, 98);
+    padding:0 ;
+    line-height: 30px;
+}
+
+#result-header > li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.header-len{margin-left: 5px;}
+
+
+.d-none {
+    display: none;
+}
+
+.main {
+    border:"1px solid #ccc";
+    padding:"20px";
+    background-color:'#f4f4f4';
+    border-radius:"5px";
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+
+
+#status-btn{
+    border-radius: '5px';
+    color:"#fff";
+    border:'none';
+    margin: "2px"
+}

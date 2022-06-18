@@ -1,0 +1,90 @@
+ #popup{
+    position: fixed;
+    background-color: #f4f3f3;
+    z-index: 999;
+    top:120px;
+    left:230px;
+    width: 35%;
+    border:1px solid #ccc;
+    border-radius: 5px;
+}
+
+#savBtn-section {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+#container {
+    margin: 10px;
+}
+
+#container > p {
+    font-size: 12px;
+    color:#0d6efd
+}
+
+#form-group{
+    display: flex;
+    margin-top: -5px;
+}
+
+#form-group > p{
+    font-size: 10px;
+}
+
+#form-group > input{
+    width: 50%;
+    border-right: none;
+    /* padding: 10px; */
+    border: 1px solid #ccc;
+}
+
+.input-style > input{
+    padding: 8px;
+    width: 97%;
+    background-color: rgb(246, 244, 244);
+    border: 1px solid #ccc;
+}
+
+#close-btn{
+    position: absolute;
+    right: 2%;
+    top: 5%;
+}
+
+#close-btn > button {
+    font-size: 8px;
+    padding: 0px 2px;
+    background-color: #fff !important;
+    border: 1px solid #ccc !important;
+    cursor: pointer;
+    border-radius: 2px;
+    text-align: center;
+    color: red !important;
+}
+
+
+#newLink{
+    display: flex;
+}
+
+#newLink > button{
+    cursor: pointer;
+}
+
+#saveRequest button{
+    background-color:#fff ;
+    cursor: pointer;
+    color: rgb(55, 173, 12);;
+    border: 1px solid rgb(55, 173, 12);
+    border-radius: 5px;
+    margin-left: 30px;
+    margin-top: 17px;
+    padding: 8px;
+}
+
+#saveRequest button:hover {
+    background-color: rgb(55, 173, 12);
+    color: #fff;
+}
