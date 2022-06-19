@@ -32,7 +32,7 @@ function ApiEditor (props) {
           enableBasicAutocompletion: true,
           enableLiveAutocompletion: true,
           enableSnippets: true,
-          value: JSON.stringify(apiData)
+          // value: JSON.stringify(apiData)
         }}
       />
     )
