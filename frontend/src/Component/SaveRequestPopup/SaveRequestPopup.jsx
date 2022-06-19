@@ -7,6 +7,7 @@ import withReactContent from 'sweetalert2-react-content'
 const SaveRequestPopup = (props) => {
     const MySwal = withReactContent(Swal)
     const {apiData, apiUrl, uniqueName, method} = (props)
+    console.log(apiData)
 
     const handelSaveRequest = async () => {
         console.log(props)
@@ -54,18 +55,18 @@ const SaveRequestPopup = (props) => {
           })   
         }
 
-        try{
-          object_ = JSON.parse(apiData)
-        }
-        catch{
-          object_ = {}
-        }
+        // try{
+        //   object_ = JSON.parse(apiData)
+        // }
+        // catch{
+        //   object_ = {}
+        // }
 
         let data = {
           name: uniqueName,
           url: apiUrl,
           method: method,
-          data: object_,
+          data: apiData,
           slug: uniqueName
         }
 

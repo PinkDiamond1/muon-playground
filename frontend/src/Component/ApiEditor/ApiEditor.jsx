@@ -6,33 +6,42 @@ import "ace-builds/src-noconflict/ext-language_tools"
 import 'ace-builds/src-noconflict/worker-css';
 import "ace-builds/webpack-resolver";
 import './ApiEditor.css'
-import { useDispatch } from 'react-redux';
-import { store } from "../../store";
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import axios from 'axios'
 
 function ApiEditor (props) {
-  var apiData = store.getState().apiData.apiData
-  const dispatch = useDispatch()
+  const {slug} = useParams()
+  const [apiData, setApiData] = useState()
 
-  const handelOnChangeData = (newValue) => {
-    dispatch({
-      type: "API_DATA",
-      payload: {
-        apiData: newValue,
-      } 
-    })
-  }
+  useEffect(() => {
+    const fetchData = async() => {
+      if (slug != '') {
+        // console.log(slug)
+        let data = {name: slug}
+        await axios.post('https://playground-api.muon.net/getDataByName', data)
+        .then((response) => {
+          setApiData(JSON.parse(response.data.response.data))
+          console.log(response.data.response.data)
+        })
+        .catch(error => console.log(error))
+      }
+    }
+
+    fetchData()
+  }, [])
 
     return(
       <AceEditor
         mode="json"
-        onChange={handelOnChangeData}
+        onChange={props.onChangeData}
         name="editor"
         editorProps={{ $blockScrolling: true }}
         setOptions={{
           enableBasicAutocompletion: true,
           enableLiveAutocompletion: true,
           enableSnippets: true,
-          // value: JSON.stringify(apiData)
+          value: JSON.stringify(apiData,null,2),
         }}
       />
     )

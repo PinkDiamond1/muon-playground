@@ -17,7 +17,8 @@ function Home() {
   const {slug} = useParams()
   const dispatch = useDispatch()
   const MySwal = withReactContent(Swal)
-  var apiData = store.getState().apiData.apiData
+  const [apiData, setApiData] = useState()
+  // var apiData = store.getState().apiData.apiData
   const [apiUrl, setApiUrl] = useState('')
   const [uniqueName, setUniqueName] = useState('')
   const [method , setMethod] = useState('get')
@@ -45,27 +46,30 @@ function Home() {
   useEffect(() => {
     const fetchData = async() => {
       if (slug !== '') {
+        console.log(slug)
         let data = {name: slug}
         await axios.post('https://playground-api.muon.net/getDataByName', data)
         .then((response) => {
-          // console.log(response)
+          console.log(response.data.response.data)
           setApiUrl(response.data.response.url)
-          dispatch({
-            type: "API_DATA",
-            payload: {
-              apiData: response.data.response.data,
-            } 
-          })
+          // dispatch({
+          //   type: "API_DATA",
+          //   payload: {
+          //     apiData: response.data.response.data,
+          //   } 
+          // })
           setUniqueName(response.data.response.name)
           setMethod(response.data.response.method)
+          setApiData(response.data.response.data)
           if (Number(run) === 1 && apiUrl.trim().length !== 0) {
             muonize()
-            clearInterval(interval)
+            // clearInterval(interval)
           }
         })
         .catch(error => console.log(error))
       }
     }
+    console.log(apiData)
     fetchData()
   }, [apiUrl, run, slug, dispatch])
 
@@ -93,7 +97,7 @@ function Home() {
     timer()
     setToggleStateResult(1)
     let data = {}
-    apiData = store.getState().apiData.apiData
+    // apiData = store.getState().apiData.apiData
     try{
       data = JSON.parse(apiData) 
     }
@@ -158,7 +162,7 @@ function Home() {
                 <button className={toggleState === 1 ? 'active-tabs': 'tab'} onClick={() => toggleTab(1)}>JSON</button>
             </div>
             <div className={toggleState === 1 ? "activeContent" : "tabContent"}>
-              <ApiEditor/>
+              <ApiEditor onChangeData={data => {setApiData(data)}}/>
             </div>
           </div>
           <div id="editor-result">
