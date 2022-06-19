@@ -55,12 +55,12 @@ const SaveRequestPopup = (props) => {
           })   
         }
 
-        // try{
-        //   object_ = JSON.parse(apiData)
-        // }
-        // catch{
-        //   object_ = {}
-        // }
+        try{
+          object_ = JSON.parse(apiData)
+        }
+        catch{
+          object_ = {}
+        }
 
         let data = {
           name: uniqueName,
@@ -69,6 +69,8 @@ const SaveRequestPopup = (props) => {
           data: apiData,
           slug: uniqueName
         }
+
+        console.log(data)
 
         axios.post('https://playground-api.muon.net/store', data).then((response) => {
           props.requestData(`https://playground.muon.net/#/${uniqueName}`)

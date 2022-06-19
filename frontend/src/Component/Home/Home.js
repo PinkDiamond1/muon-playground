@@ -1,24 +1,29 @@
 import withReactContent from 'sweetalert2-react-content'
-import ApiEditor from "../ApiEditor/ApiEditor";
 import DbEditor from "../DbEditor/DbEditor";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
-import { useDispatch } from 'react-redux';
-import { store } from "../../store";
 import Swal from 'sweetalert2'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import '../../App.css'
 import {useLocation} from "react-router-dom";
 
+import AceEditor from "react-ace";
+import "ace-builds/src-noconflict/ace";
+import "ace-builds/src-noconflict/mode-json";
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/src-noconflict/ext-language_tools"
+import 'ace-builds/src-noconflict/worker-css';
+import "ace-builds/webpack-resolver";
+import '../ApiEditor/ApiEditor'
+
 
 function Home() {
   const {slug} = useParams()
-  const dispatch = useDispatch()
   const MySwal = withReactContent(Swal)
   const [apiData, setApiData] = useState()
-  // var apiData = store.getState().apiData.apiData
+  const [jsonData, setJsonData] = useState()
   const [apiUrl, setApiUrl] = useState('')
   const [uniqueName, setUniqueName] = useState('')
   const [method , setMethod] = useState('get')
@@ -30,6 +35,7 @@ function Home() {
   const [statusColor, setStatusColor] = useState({color: '', des: ''})
   const search = useLocation().search;
   const run = new URLSearchParams(search).get('run');
+  let object_ = {}
   const toggleTab = (index) => {
     setToggleState(index)
   }
@@ -45,33 +51,38 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async() => {
-      if (slug !== '') {
+      if (slug !== undefined) {
         console.log(slug)
         let data = {name: slug}
         await axios.post('https://playground-api.muon.net/getDataByName', data)
-        .then((response) => {
-          console.log(response.data.response.data)
+        .then((response) => {   
           setApiUrl(response.data.response.url)
-          // dispatch({
-          //   type: "API_DATA",
-          //   payload: {
-          //     apiData: response.data.response.data,
-          //   } 
-          // })
           setUniqueName(response.data.response.name)
           setMethod(response.data.response.method)
-          setApiData(response.data.response.data)
+          // try{
+          //   object_ = JSON.parse(response.data.response.data)
+          // }
+          // catch{
+          //   object_ = {}
+          // }
+          try{
+            setApiData(JSON.parse(response.data.response.data))
+          }
+          catch{
+            
+          }
+          setJsonData(response.data.response.data)
+          console.log(response.data.response.url)
           if (Number(run) === 1 && apiUrl.trim().length !== 0) {
+            console.log('muon')
             muonize()
-            // clearInterval(interval)
           }
         })
         .catch(error => console.log(error))
       }
     }
-    console.log(apiData)
     fetchData()
-  }, [apiUrl, run, slug, dispatch])
+  }, [slug ,apiUrl, run])
 
   
 
@@ -99,12 +110,11 @@ function Home() {
     let data = {}
     // apiData = store.getState().apiData.apiData
     try{
-      data = JSON.parse(apiData) 
+      data = JSON.parse(jsonData) 
     }
     catch{
       data = {}
     }
-    // console.log(typeof(data))
     if (method === 'get'){
       await axios.get(apiUrl).then((response) => {
        setResult(response.data)
@@ -139,10 +149,14 @@ function Home() {
     }
   }
 
+  const onChangeData = (newValue) => {
+    setJsonData(newValue)
+  }
+
   return (
     
     <div className="Home" >
-      <Header apiData={apiData} apiUrl={apiUrl} uniqueName={uniqueName} method={method}/>
+      <Header apiData={jsonData} apiUrl={apiUrl} uniqueName={uniqueName} method={method}/>
       <div className="main">
         <div id="muonize-section">
           <select value={method ?? ''} onChange={e => setMethod(e.target.value)}>
@@ -162,7 +176,18 @@ function Home() {
                 <button className={toggleState === 1 ? 'active-tabs': 'tab'} onClick={() => toggleTab(1)}>JSON</button>
             </div>
             <div className={toggleState === 1 ? "activeContent" : "tabContent"}>
-              <ApiEditor onChangeData={data => {setApiData(data)}}/>
+            <AceEditor
+              mode="json"
+              onChange={onChangeData}
+              name="editor"
+              editorProps={{ $blockScrolling: true }}
+              setOptions={{
+                enableBasicAutocompletion: true,
+                enableLiveAutocompletion: true,
+                enableSnippets: true,
+                value: JSON.stringify(apiData,null,2),
+              }}
+            />
             </div>
           </div>
           <div id="editor-result">
