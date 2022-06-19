@@ -50,7 +50,7 @@ function Home() {
       if (slug !== '') {
         console.log(slug)
         let data = {name: slug}
-        await axios.post('/getDataByName', data)
+        await axios.post('https://playground-api.muon.net/getDataByName', data)
         .then((response) => {
           // console.log(response)
           setApiUrl(response.data.response.url)
