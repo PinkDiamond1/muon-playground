@@ -50,7 +50,7 @@ function Home() {
       if (slug !== '') {
         console.log(slug)
         let data = {name: slug}
-        await axios.post('http://167.172.148.157:3010/getDataByName', data)
+        await axios.post('https://167.172.148.157:3010/getDataByName', data)
         .then((response) => {
           // console.log(response)
           setApiUrl(response.data.response.url)
