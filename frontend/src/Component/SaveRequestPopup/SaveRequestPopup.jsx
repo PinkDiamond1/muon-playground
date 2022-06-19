@@ -69,7 +69,7 @@ const SaveRequestPopup = (props) => {
           slug: uniqueName
         }
 
-        axios.post('https://167.172.148.157:3010/store', data).then((response) => {
+        axios.post('https://playground-api.muon.net/store', data).then((response) => {
           props.requestData(`https://playground.muon.net/#/${uniqueName}`)
           return MySwal.fire({
             title: <p>Request Saved</p>,
@@ -86,7 +86,7 @@ const SaveRequestPopup = (props) => {
       let stringValidator = uniqueName.match(letterNumber) ? true : false
       if(stringValidator === false) { return false }
       let data = {name: uniqueName}
-      const res = await axios.post('https://167.172.148.157:3010/getDataByName', data).then((response) => {
+      const res = await axios.post('https://playground-api.muon.net/getDataByName', data).then((response) => {
         return(response.data.response)
       })
       return res
