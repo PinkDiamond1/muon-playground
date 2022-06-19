@@ -15,7 +15,6 @@ import {useLocation} from "react-router-dom";
 
 function Home() {
   const {slug} = useParams()
-  console.log(slug)
   const dispatch = useDispatch()
   const MySwal = withReactContent(Swal)
   var apiData = store.getState().apiData.apiData
@@ -24,14 +23,12 @@ function Home() {
   const [method , setMethod] = useState('get')
   const [result, setResult] = useState()
   const [resultHeader, setResultHeader] = useState({})
-  console.log(slug)
   const [toggleState, setToggleState] = useState(1);
   const [toggleStateResult, setToggleStateResult] = useState(1)
   const [time, setTime] = useState(0)
   const [statusColor, setStatusColor] = useState({color: '', des: ''})
   const search = useLocation().search;
   const run = new URLSearchParams(search).get('run');
-  console.log(run)
   const toggleTab = (index) => {
     setToggleState(index)
   }
@@ -48,7 +45,6 @@ function Home() {
   useEffect(() => {
     const fetchData = async() => {
       if (slug !== '') {
-        console.log(slug)
         let data = {name: slug}
         await axios.post('https://playground-api.muon.net/getDataByName', data)
         .then((response) => {
@@ -104,7 +100,7 @@ function Home() {
     catch{
       data = {}
     }
-    console.log(typeof(data))
+    // console.log(typeof(data))
     if (method === 'get'){
       await axios.get(apiUrl).then((response) => {
        setResult(response.data)
