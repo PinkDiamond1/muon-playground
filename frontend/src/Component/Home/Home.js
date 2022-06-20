@@ -155,7 +155,7 @@ function Home() {
 
   return (
     
-    <div className="Home" >
+    <div className="App" >
       <Header apiData={jsonData} apiUrl={apiUrl} uniqueName={uniqueName} method={method}/>
       <div className="main">
         <div id="muonize-section">
