@@ -73,7 +73,7 @@ const SaveRequestPopup = (props) => {
         console.log(data)
 
         axios.post('https://playground-api.muon.net/store', data).then((response) => {
-          props.requestData(`https://playground.muon.net/#/${uniqueName}`)
+          props.requestData(`https://playground.muon.net/${uniqueName}`)
           return MySwal.fire({
             title: <p>Request Saved</p>,
             icon:"success",

@@ -36,7 +36,6 @@ function Home() {
   const [statusColor, setStatusColor] = useState({color: '', des: ''})
   const search = useLocation().search;
   const run = new URLSearchParams(search).get('run');
-  let object_ = {}
   const toggleTab = (index) => {
     setToggleState(index)
   }
