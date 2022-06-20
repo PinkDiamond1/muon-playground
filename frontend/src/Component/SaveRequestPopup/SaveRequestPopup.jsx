@@ -8,10 +8,10 @@ const SaveRequestPopup = (props) => {
     const MySwal = withReactContent(Swal)
     const {apiData, apiUrl, uniqueName, method} = (props)
     console.log(apiData)
+    let New_apiData;
 
     const handelSaveRequest = async () => {
         console.log(props)
-
         if (await checkUniqueName() === false) { 
           return MySwal.fire({
             title: <p>Invalid Slug</p>,
@@ -54,12 +54,18 @@ const SaveRequestPopup = (props) => {
           })   
         }
 
+        if (apiData === undefined) {
+          New_apiData = {}
+        }
+        else{
+          New_apiData = apiData
+        }
 
         let data = {
           name: uniqueName,
           url: apiUrl,
           method: method,
-          data: apiData,
+          data: New_apiData,
           slug: uniqueName
         }
 

@@ -55,7 +55,8 @@ function Home() {
         console.log(id)
         let data = {name: id}
         await axios.post('https://playground-api.muon.net/getDataByName', data)
-        .then((response) => {   
+        .then((response) => {
+          console.log(response)   
           setApiUrl(response.data.response.url)
           setUniqueName(response.data.response.name)
           setMethod(response.data.response.method)
