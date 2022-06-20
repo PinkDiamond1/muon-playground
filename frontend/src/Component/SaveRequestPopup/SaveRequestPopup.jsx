@@ -11,7 +11,6 @@ const SaveRequestPopup = (props) => {
 
     const handelSaveRequest = async () => {
         console.log(props)
-        let object_ = {}
 
         if (await checkUniqueName() === false) { 
           return MySwal.fire({
@@ -55,12 +54,6 @@ const SaveRequestPopup = (props) => {
           })   
         }
 
-        try{
-          object_ = JSON.parse(apiData)
-        }
-        catch{
-          object_ = {}
-        }
 
         let data = {
           name: uniqueName,

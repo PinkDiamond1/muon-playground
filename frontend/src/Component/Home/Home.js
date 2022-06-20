@@ -59,12 +59,6 @@ function Home() {
           setApiUrl(response.data.response.url)
           setUniqueName(response.data.response.name)
           setMethod(response.data.response.method)
-          // try{
-          //   object_ = JSON.parse(response.data.response.data)
-          // }
-          // catch{
-          //   object_ = {}
-          // }
           try{
             setApiData(JSON.parse(response.data.response.data))
           }
