@@ -21,7 +21,7 @@ import '../ApiEditor/ApiEditor'
 
 
 function Home() {
-  const {slug} = useParams()
+  const {id} = useParams()
   const MySwal = withReactContent(Swal)
   const [apiData, setApiData] = useState()
   const [jsonData, setJsonData] = useState()
@@ -52,9 +52,9 @@ function Home() {
 
   useEffect(() => {
     const fetchData = async() => {
-      if (slug !== undefined) {
-        console.log(slug)
-        let data = {name: slug}
+      if (id !== undefined) {
+        console.log(id)
+        let data = {name: id}
         await axios.post('https://playground-api.muon.net/getDataByName', data)
         .then((response) => {   
           setApiUrl(response.data.response.url)
@@ -83,7 +83,7 @@ function Home() {
       }
     }
     fetchData()
-  }, [slug ,apiUrl, run])
+  }, [id ,apiUrl, run])
 
   
 
