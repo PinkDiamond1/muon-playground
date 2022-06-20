@@ -1,3 +1,5 @@
+import React from 'react'
+import { useParams } from 'react-router-dom';
 import withReactContent from 'sweetalert2-react-content'
 import DbEditor from "../DbEditor/DbEditor";
 import Header from "../Header/Header";
@@ -5,7 +7,6 @@ import Footer from "../Footer/Footer";
 import { useEffect, useState } from "react";
 import Swal from 'sweetalert2'
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
 import '../../App.css'
 import {useLocation} from "react-router-dom";
 
