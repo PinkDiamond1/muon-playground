@@ -1,7 +1,7 @@
 import Popup from '../Popup/Popup'
 import './Header.css'
 import muonLogo from '../../assets/images/muonLogo.jpg'
-import { MuonTools } from 'muon-toolbox';
+// import { MuonTools } from 'muon-toolbox';
 
 
 
@@ -11,7 +11,7 @@ const Header = (props) => {
       <div id='header-group'>
         <div>
           <img src={muonLogo} width="200px" alt=''></img>
-          <MuonTools  mode={process.env.REACT_APP_MODE} />
+          {/* <MuonTools  mode={process.env.REACT_APP_MODE} /> */}
         </div>
       </div>
         <Popup apiData={props.apiData} apiUrl={props.apiUrl} uniqueName={props.uniqueName} method={props.method}/>    

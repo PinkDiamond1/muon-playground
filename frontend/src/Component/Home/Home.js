@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 import axios from 'axios'
 import '../../App.css'
 import {useLocation} from "react-router-dom";
-
+import { MuonTools } from 'muon-toolbox';
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/ace";
 import "ace-builds/src-noconflict/mode-json";
@@ -18,6 +18,48 @@ import "ace-builds/src-noconflict/ext-language_tools"
 import 'ace-builds/src-noconflict/worker-css';
 import "ace-builds/webpack-resolver";
 import '../ApiEditor/ApiEditor'
+import MuonNetwork from '../common/MuonNetwork'
+import styled from 'styled-components'
+import { Flex } from 'rebass'
+import logos from '../../assets/images/logo.svg'
+
+const Image = styled.img``
+
+const AppInfo = styled(Flex)`
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight:normal;
+    src: url(/fonts/montserrat-v18-latin-regular.eot) format('eot'),
+      url(/fonts/montserrat-v18-latin-regular.ttf) format('turetype'),
+      url(/fonts/montserrat-v18-latin-regular.woff) format('woff');
+    font-display: block;
+  }
+  & > * {
+    margin-right: 10px;
+  }
+  font-family: Montserrat;
+
+  .hide-on-mobile {
+    @media (max-width: 576px) {
+      display: none;
+    }
+  }
+`
+
+
+const Media = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (min-width: 767px) {
+    display: none;
+  }
+`
+const WrapMuonNetwork = styled.div`
+  @media (max-width: 767px) {
+    display: none;
+  }
+`
 
 
 function Home() {
@@ -150,7 +192,19 @@ function Home() {
 
   return (
     
-    <div className="App" >
+    <>
+      <div className='muonHeader' style={{ fontSize:"12px" ,fontWeight:"normal", padding:"10px", marginLeft:"15px", color:"#313144", fontFamily: "Montserrat"}}>
+        <AppInfo>
+          <WrapMuonNetwork>
+            <MuonNetwork logo="muonNetwork" />
+          </WrapMuonNetwork>
+          <Media>
+            <Image src={logos} alt="logo" />
+          </Media>
+          <MuonTools  mode={process.env.REACT_APP_MODE}/>
+        </AppInfo>
+      </div>
+      <div className="App" >
       <Header apiData={jsonData} apiUrl={apiUrl} uniqueName={uniqueName} method={method}/>
       <div className="main">
         <div id="muonize-section">
@@ -211,6 +265,7 @@ function Home() {
         <Footer/>
       </div>
     </div>
+    </>
   );
 }
 
