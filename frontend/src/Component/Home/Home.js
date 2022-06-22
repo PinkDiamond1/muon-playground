@@ -35,7 +35,7 @@ const AppInfo = styled(Flex)`
     font-display: block;
   }
   & > * {
-    margin-right: 10px;
+    margin-right: 5px;
   }
   font-family: Montserrat;
 
@@ -193,7 +193,7 @@ function Home() {
   return (
     
     <>
-      <div className='muonHeader' style={{ fontSize:"12px" ,fontWeight:"normal", padding:"10px", marginLeft:"15px", color:"#313144", fontFamily: "Montserrat"}}>
+      <div className='muonHeader' style={{ fontSize:"12px" ,fontWeight:"normal", padding:"10px", color:"#313144", fontFamily: "Montserrat"}}>
         <AppInfo>
           <WrapMuonNetwork>
             <MuonNetwork logo="muonNetwork" />
@@ -262,9 +262,9 @@ function Home() {
             </div>
           </div>
         </div>
-        <Footer/>
       </div>
     </div>
+        <Footer/>
     </>
   );
 }

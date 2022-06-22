@@ -2,6 +2,15 @@
     margin: 50px;
 }
 
+.muonHeader{
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 5%) 0px
+    
+}
+
+body{
+    background-color: rgb(248, 248, 255);
+}
 
 input {
     outline: none;
@@ -31,19 +40,37 @@ input {
 }
 
 #muonize-section > select{
-    color:rgb(118, 187, 213);
-    padding: 1px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 5%;
+    height: 45px;
+    background: rgb(230, 236, 242);
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(145, 145, 145);
+    padding: 0px 18px 0px 15px;
+    cursor: pointer;
 }
 
 #muonize-section > input {
-    color: rgb(97, 97, 97);
-    outline: none;
-    border: 1px solid #ccc;
-    width: inherit;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    background: rgb(230, 236, 242);
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(145, 145, 145);
+    padding: 0px 18px 0px 15px;
 }
 
 #muonize-section > input:focus {
-    border:1px solid rgb(160, 160, 160)
+    /* border:1px solid rgb(160, 160, 160) */
 }
 
 #muonize-section button {
@@ -58,23 +85,22 @@ input {
     background-color: rgb(42, 133, 9);
 }
 
-
 #muonize-section > * {
     padding: 15px;
     font-size: 14px;
 }
-
 
 .tab {
     display: flex;
     overflow: hidden;
     /* border: 1px solid #ccc; */
     margin-top: 10px;
-    border-bottom: 1px solid #ccc;
+    margin-bottom: 1px;
+    /* border-bottom: 1px solid #ccc; */
 }
 
 .tab > button {
-    padding: 14px 18px;
+    /* padding: 14px 18px;
     border:0;
     outline: none;
     cursor: pointer;
@@ -82,20 +108,28 @@ input {
     background-color: #fff;
     border-right: 1px solid #ddd;
     border-bottom: px solid #fff;
-    font-size: 16px;
+    font-size: 16px; */
+    padding: 14px 18px;
+    justify-content: space-between;
+    align-items: center;
+    height: 45px;
+    background: rgb(230, 236, 242);
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(145, 145, 145);
+    padding: 0px 18px 0px 15px;
 }
 
 .tab > button:hover {
-    padding: 14px 18px;
+    /* padding: 14px 18px; */
     cursor: pointer;
-    opacity: .6;
+    /* opacity: .6; */
 }
 
 .active-tabs{
     transition: 0.8s;
     background-color: rgb(238, 236, 236) !important;
 }
-
 
 .tabContent {
     transition: 0.8s;
@@ -106,7 +140,6 @@ input {
     transition: 0.8s;
     display: block;
 }
-
 
 #result-header {
     list-style: none;
@@ -122,26 +155,33 @@ input {
 
 .header-len{margin-left: 5px;}
 
-
 .d-none {
     display: none;
 }
 
 .main {
-    border:"1px solid #ccc";
-    padding:"20px";
-    background-color:'#f4f4f4';
-    border-radius:"5px";
-    background-color: #f4f4f4;
+    background: linear-gradient(0deg, rgb(211, 219, 227) 0%, rgba(231, 235, 243, 0) 126.95%);
+    box-sizing: border-box;
+    box-shadow: rgb(239 239 239 / 25%) 0px 4px 4px;
+    border: transparent;
     padding: 15px;
+    padding-bottom: 50px;
     border-radius: 5px;
 }
-
-
 
 #status-btn{
     border-radius: '5px';
     color:"#fff";
     border:'none';
     margin: "2px"
+}
+
+.ace_gutter-layer{
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    background: rgb(230, 236, 242);
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
 }

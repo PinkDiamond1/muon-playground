@@ -1,8 +1,18 @@
 #footer{
     display: flex;
-    margin-top: 20px;
+    padding: 30px;
+    margin-top: -50px;
+    margin-left: 45%;
+    font-size: 12px;
+
+    /* margin-top: 20px; */
 }
 
 #footer img {
     margin-left: 8px;
+}
+
+#powered-by {
+    margin-top: 4px;
+    color:#313144;
 }
