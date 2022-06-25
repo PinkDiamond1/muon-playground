@@ -193,7 +193,7 @@ function Home() {
   return (
     
     <>
-      <div className='muonHeader' style={{ fontSize:"12px" ,fontWeight:"normal", padding:"10px", color:"#313144", fontFamily: "Montserrat"}}>
+      <div className='muonHeader' style={{ fontSize:"12px" ,fontWeight:"normal", padding:"10px", color:"#313144", fontFamily: "Montserrat", paddingLeft:"50px"}}>
         <AppInfo>
           <WrapMuonNetwork>
             <MuonNetwork logo="muonNetwork" />
