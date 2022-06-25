@@ -76,8 +76,8 @@
 #saveRequest button{
     background-color:#fff ;
     cursor: pointer;
-    color: rgb(55, 173, 12);;
-    border: 1px solid rgb(55, 173, 12);
+    color: #5b65fe;
+    border: 1px solid #5b65fe;
     border-radius: 5px;
     margin-left: 30px;
     margin-top: 17px;
@@ -85,6 +85,6 @@
 }
 
 #saveRequest button:hover {
-    background-color: rgb(55, 173, 12);
+    background-color: #5b65fe;
     color: #fff;
 }

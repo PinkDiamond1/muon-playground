@@ -1,6 +1,6 @@
 import Popup from '../Popup/Popup'
 import './Header.css'
-import muonLogo from '../../assets/images/muonLogo.jpg'
+import muonLogo from '../../assets/images/muonLogo.png'
 // import { MuonTools } from 'muon-toolbox';
 
 

@@ -55,6 +55,11 @@ input {
     cursor: pointer;
 }
 
+#muonize-section > select:focus{
+    outline: none !important;
+}
+
+
 #muonize-section > input {
     -webkit-box-pack: justify;
     justify-content: space-between;
@@ -76,13 +81,13 @@ input {
 #muonize-section button {
     cursor: pointer;
     color: #fff;
-    background-color: rgb(55, 173, 12);
+    background-color: #5b65fe;
     border: 0;
     border-radius: 2px;
 }
 
 #muonize-section button:hover{
-    background-color: rgb(42, 133, 9);
+    background-color: #7b83fa;
 }
 
 #muonize-section > * {
